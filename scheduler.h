@@ -4,7 +4,7 @@
 #include "process.h"// Process
 
 typedef enum policy{
-	FIFO,
+	FCFS,
 	RR,
 	SJF,
 	PSJF	

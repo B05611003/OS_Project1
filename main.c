@@ -1,6 +1,8 @@
 #define _GNU_SOURCE
 
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include "process.h"
 #include "scheduler.h"
@@ -8,7 +10,7 @@
 
 Policy checkPolicy(char *policy_name) {
 	if (!strcmp(policy_name, "FIFO")) {
-		return FIFO;	
+		return FCFS;	
 	} else if (!strcmp(policy_name, "RR")) {
 		return RR;
 	} else if (!strcmp(policy_name, "SJF")) {

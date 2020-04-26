@@ -37,10 +37,9 @@ int comparator_fcfs(const void *a, const void *b) {
 void schedule_FCFS(Process *proc, int num_procs){
 	int running = -1;
 	int curr = 0;
-	int event = 0;
 	int remaining = num_procs;
 	int ingproc=0;
-	int next = -1
+	int next = -1;
 	//to make sure the child running fairly,set the parent to other CPU
 	setCore(getpid(), PARENT_CPU);
 	set_high_priority(getpid());
@@ -58,14 +57,14 @@ void schedule_FCFS(Process *proc, int num_procs){
 		for (int i = ingproc; i < num_procs; i++) {//for every proc
 			if (proc[i].ready == curr) {// if proc had come
 				proc[i].pid = exeproc(proc[i]);//init process
-				set_low_priority(ps[i].pid);//cooldown it		
+				set_low_priority(proc[i].pid);//cooldown it		
 				ingproc++;
 			}
 			else{
 				break;
 			}
 		}
-		next = -1
+		next = -1;
 		if (running != -1)	next = running; // FIFO is non-preemtive
 		else{
 			for (int i = num_procs-remaining; i < ingproc; i++) {
@@ -80,7 +79,6 @@ void schedule_FCFS(Process *proc, int num_procs){
 			set_high_priority(proc[next].pid);
 			set_low_priority(proc[running].pid);
 			running = next;
-			event = curr;
 		}
 		/* Run 1 unit time */
 		volatile unsigned long i;
@@ -93,13 +91,13 @@ void schedule_FCFS(Process *proc, int num_procs){
 	}
 }
 
-void schedule_RR(Process *proc, int num_procs, int policy){
+void schedule_RR(Process *proc, int num_procs){
 	int running = -1;
 	int curr = 0;
 	int event = 0;
 	int remaining = num_procs;
 	int ingproc=0;
-	int next = -1
+	int next = -1;
 	//to make sure the child running fairly,set the parent to other CPU
 	setCore(getpid(), PARENT_CPU);
 	set_high_priority(getpid());
@@ -117,7 +115,7 @@ void schedule_RR(Process *proc, int num_procs, int policy){
 		for (int i = ingproc; i < num_procs; i++) {	//for every proc
 			if (proc[i].ready == curr) {			//if proc had come
 				proc[i].pid = exeproc(proc[i]);		//init process
-				set_low_priority(ps[i].pid);		//cooldown it		
+				set_low_priority(proc[i].pid);		//cooldown it		
 				ingproc++;
 			}
 			else{
@@ -160,12 +158,12 @@ void schedule_RR(Process *proc, int num_procs, int policy){
 	}
 }
 
-void schedule_SJF(Process *proc, int num_procs, int policy){
+void schedule_SJF(Process *proc, int num_procs){
 	int running = -1;
 	int curr = 0;
 	int remaining = num_procs;
 	int ingproc=0;
-	int next = -1
+	int next = -1;
 	//to make sure the child running fairly,set the parent to other CPU
 	setCore(getpid(), PARENT_CPU);
 	set_high_priority(getpid());
@@ -183,14 +181,14 @@ void schedule_SJF(Process *proc, int num_procs, int policy){
 		for (int i = ingproc; i < num_procs; i++) {//for every proc
 			if (proc[i].ready == curr) {// if proc had come
 				proc[i].pid = exeproc(proc[i]);//init process
-				set_low_priority(ps[i].pid);//cooldown it		
+				set_low_priority(proc[i].pid);//cooldown it		
 				ingproc++;
 			}
 			else{
 				break;
 			}
 		}
-		next = -1
+		next = -1;
 		if (running != -1) 
 			next = running;//non -preemtive
 		else{
@@ -218,12 +216,12 @@ void schedule_SJF(Process *proc, int num_procs, int policy){
 	}
 }
 
-void schedule_SJFP(Process *proc, int num_procs, int policy){
+void schedule_PSJF(Process *proc, int num_procs){
 	int running = -1;
 	int curr = 0;
 	int remaining = num_procs;
 	int ingproc=0;
-	int next = -1
+	int next = -1;
 	//to make sure the child running fairly,set the parent to other CPU
 	setCore(getpid(), PARENT_CPU);
 	set_high_priority(getpid());
@@ -241,7 +239,7 @@ void schedule_SJFP(Process *proc, int num_procs, int policy){
 		for (int i = ingproc; i < num_procs; i++) {//for every proc
 			if (proc[i].ready == curr) {// if proc had come
 				proc[i].pid = exeproc(proc[i]);//init process
-				set_low_priority(ps[i].pid);//cooldown it		
+				set_low_priority(proc[i].pid);//cooldown it		
 				ingproc++;
 			}
 			else{
@@ -258,8 +256,7 @@ void schedule_SJFP(Process *proc, int num_procs, int policy){
 			//fprintf(stderr, "Context switch\n");
 			set_high_priority(proc[next].pid);
 			set_low_priority(proc[running].pid);
-			running = next;
-			event = curr;
+			running = next;	
 		}
 		/* Run 1 unit time */
 		volatile unsigned long i;
