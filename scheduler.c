@@ -42,7 +42,10 @@ void schedule_FCFS(Process *proc, int num_procs){
 	int next = -1;
 	//to make sure the child running fairly,set the parent to other CPU
 	setCore(getpid(), PARENT_CPU);
-	set_high_priority(getpid());
+	struct sched_param param;
+	param.sched_priority = 0;
+	sched_setscheduler(getpid(), SCHED_OTHER, &param);
+	
 	
 	qsort(proc, num_procs, sizeof(Process), comparator_fcfs);
 
@@ -57,7 +60,7 @@ void schedule_FCFS(Process *proc, int num_procs){
 		for (int i = ingproc; i < num_procs; i++) {//for every proc
 			if (proc[i].ready == curr) {// if proc had come
 				proc[i].pid = exeproc(proc[i]);//init process
-				set_low_priority(proc[i].pid);//cooldown it		
+				printf("at %d, %s %d is born\n",curr,proc[i].name,proc[i].pid);
 				ingproc++;
 			}
 			else{
@@ -76,9 +79,12 @@ void schedule_FCFS(Process *proc, int num_procs){
 		}
 		if (next != running && next != -1) {
 			//fprintf(stderr, "Context switch\n");
+			//printf("next=%d\n",proc[next].pid);
 			set_high_priority(proc[next].pid);
 			set_low_priority(proc[running].pid);
+			printf("at %d,stopping %s running %s\n", curr,proc[running].name,proc[next].name);
 			running = next;
+
 		}
 		/* Run 1 unit time */
 		volatile unsigned long i;
@@ -115,7 +121,7 @@ void schedule_RR(Process *proc, int num_procs){
 		for (int i = ingproc; i < num_procs; i++) {	//for every proc
 			if (proc[i].ready == curr) {			//if proc had come
 				proc[i].pid = exeproc(proc[i]);		//init process
-				set_low_priority(proc[i].pid);		//cooldown it		
+				printf("at %d, %s %d is born\n",curr,proc[i].name,proc[i].pid);
 				ingproc++;
 			}
 			else{
@@ -124,6 +130,7 @@ void schedule_RR(Process *proc, int num_procs){
 		}
 		next = -1;
 		if (running == -1) {	//currrently not running program
+			printf("here:%d\n",curr );
 			for (int i = 0; i < ingproc; i++) 
 				if (proc[i].exec > 0) {
 					next = i;
@@ -142,8 +149,11 @@ void schedule_RR(Process *proc, int num_procs){
 		
 		if (next != running && next != -1) {
 			//fprintf(stderr, "Context switch\n");
+			printf("at time = %d next=%d\n",curr,proc[next].pid);
 			set_high_priority(proc[next].pid);
 			set_low_priority(proc[running].pid);
+			printf("at %d,stopping %s running %s\n", curr, proc[running].name,proc[next].name);
+
 			running = next;
 			event = curr;
 		}
@@ -181,7 +191,8 @@ void schedule_SJF(Process *proc, int num_procs){
 		for (int i = ingproc; i < num_procs; i++) {//for every proc
 			if (proc[i].ready == curr) {// if proc had come
 				proc[i].pid = exeproc(proc[i]);//init process
-				set_low_priority(proc[i].pid);//cooldown it		
+				printf("at %d, %s %d is born\n",curr,proc[i].name,proc[i].pid);
+				//set_low_priority(proc[i].pid);//cooldown it		
 				ingproc++;
 			}
 			else{
@@ -192,7 +203,7 @@ void schedule_SJF(Process *proc, int num_procs){
 		if (running != -1) 
 			next = running;//non -preemtive
 		else{
-			for (int i = num_procs-remaining; i < ingproc; i++) {
+			for (int i = 0; i < ingproc; i++) {
 				if ((proc[i].exec != 0) && (next == -1 || proc[i].exec < proc[next].exec))
 					next = i;	
 				}
@@ -202,6 +213,7 @@ void schedule_SJF(Process *proc, int num_procs){
 			//fprintf(stderr, "Context switch\n");
 			set_high_priority(proc[next].pid);
 			set_low_priority(proc[running].pid);
+			printf("at %d,stopping %s running %s\n", curr, proc[running].name,proc[next].name);
 			running = next;
 			
 		}
@@ -239,7 +251,9 @@ void schedule_PSJF(Process *proc, int num_procs){
 		for (int i = ingproc; i < num_procs; i++) {//for every proc
 			if (proc[i].ready == curr) {// if proc had come
 				proc[i].pid = exeproc(proc[i]);//init process
-				set_low_priority(proc[i].pid);//cooldown it		
+				printf("at %d, %s %d is born\n",curr,proc[i].name,proc[i].pid);
+
+				//set_low_priority(proc[i].pid);//cooldown it		
 				ingproc++;
 			}
 			else{
@@ -256,6 +270,7 @@ void schedule_PSJF(Process *proc, int num_procs){
 			//fprintf(stderr, "Context switch\n");
 			set_high_priority(proc[next].pid);
 			set_low_priority(proc[running].pid);
+			printf("at %d,stopping %s running %s\n", curr,proc[running].name,proc[next].name);
 			running = next;	
 		}
 		/* Run 1 unit time */
