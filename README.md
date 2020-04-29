@@ -18,9 +18,9 @@ Process scheduling is an essential part of an operating system supporting multip
 
 
 
-## 2.kernel version
+## kernel version
 * kernel 4.15.8(HW1的版本)
-## 3.usage 
+## usage 
 `git clone https://github.com/B05611003/OS_Project1`  
 `cd OS_Project1`  
 `make`  
