@@ -1,0 +1,17 @@
+at 0, P1 2544 is fork()
+at 0,running P1
+at 1000, P2 2545 is fork()
+at 2000, P3 2546 is fork()
+at 3000,running P2
+at 4000,running P3
+at 5000, P4 2547 is fork()
+at 7000, P5 2548 is fork()
+at 8000,running P5
+at 9000,running P4
+------------------------------
+name	id
+P1	2544
+P2	2545
+P3	2546
+P4	2547
+P5	2548

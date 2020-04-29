@@ -1,0 +1,71 @@
+at 1200, P1 2466 is fork()
+at 1200,running P1
+at 2400, P2 2467 is fork()
+at 2700,running P2
+at 3200,running P1
+at 3600, P3 2468 is fork()
+at 3700,running P2
+at 4200,running P3
+at 4700,running P1
+at 4800, P4 2469 is fork()
+at 5200, P5 2470 is fork()
+at 5200,running P2
+at 5700,running P3
+at 5800, P6 2471 is fork()
+at 6200,running P4
+at 6700,running P5
+at 7200,running P6
+at 7700,running P1
+at 8200,running P2
+at 8700,running P3
+at 9200,running P4
+at 9700,running P5
+at 10200,running P6
+at 10700,running P1
+at 11200,running P2
+at 11700,running P3
+at 12200,running P4
+at 12700,running P5
+at 13200,running P6
+at 13700,running P1
+at 14200,running P2
+at 14700,running P3
+at 15200,running P4
+at 15700,running P5
+at 16200,running P6
+at 16700,running P1
+at 17200,running P2
+at 17700,running P3
+at 18200,running P1
+at 18600,running P2
+at 19100,running P4
+at 19600,running P5
+at 20100,running P6
+at 20600,running P4
+at 21100,running P5
+at 21600,running P6
+at 22100,running P4
+at 22600,running P5
+at 23100,running P6
+at 23600,running P4
+at 24100,running P5
+at 24600,running P6
+at 25100,running P4
+at 25600,running P5
+at 26100,running P6
+at 26600,running P4
+at 27100,running P5
+at 27600,running P6
+at 28100,running P4
+at 28600,running P5
+at 29100,running P4
+at 29600,running P5
+at 30100,running P4
+------------------------------
+name	id
+P1	2466
+P2	2467
+P3	2468
+P4	2469
+P5	2470
+P6	2471

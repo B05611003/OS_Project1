@@ -1,0 +1,60 @@
+at 0, P1 2426 is fork()
+at 0,running P1
+at 200, P2 2427 is fork()
+at 300, P3 2428 is fork()
+at 400, P4 2429 is fork()
+at 500, P5 2430 is fork()
+at 500, P6 2431 is fork()
+at 500,running P2
+at 600, P7 2432 is fork()
+at 1000,running P3
+at 1500,running P4
+at 2000,running P5
+at 2500,running P6
+at 3000,running P7
+at 3500,running P1
+at 4000,running P2
+at 4500,running P3
+at 5000,running P4
+at 5500,running P1
+at 6000,running P2
+at 6500,running P3
+at 7000,running P5
+at 7500,running P1
+at 8000,running P2
+at 8500,running P3
+at 9000,running P6
+at 9500,running P1
+at 10000,running P2
+at 10500,running P3
+at 11000,running P7
+at 11500,running P1
+at 12000,running P2
+at 12500,running P3
+at 13000,running P1
+at 13500,running P2
+at 14000,running P7
+at 14500,running P1
+at 15000,running P2
+at 15500,running P7
+at 16000,running P1
+at 16500,running P2
+at 17000,running P7
+at 17500,running P1
+at 18000,running P2
+at 18500,running P1
+at 19000,running P7
+at 19500,running P1
+at 20000,running P7
+at 20500,running P1
+at 21000,running P7
+at 21500,running P1
+------------------------------
+name	id
+P1	2426
+P2	2427
+P3	2428
+P4	2429
+P5	2430
+P6	2431
+P7	2432

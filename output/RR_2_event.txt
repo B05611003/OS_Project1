@@ -1,0 +1,22 @@
+at 600, P1 2389 is fork()
+at 600,running P1
+at 800, P2 2390 is fork()
+at 1100,running P2
+at 1600,running P1
+at 2100,running P2
+at 2600,running P1
+at 3100,running P2
+at 3600,running P1
+at 4100,running P2
+at 4600,running P1
+at 5100,running P2
+at 5600,running P1
+at 6100,running P2
+at 6600,running P1
+at 7100,running P2
+at 7600,running P1
+at 8100,running P2
+------------------------------
+name	id
+P1	2389
+P2	2390

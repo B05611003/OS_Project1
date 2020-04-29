@@ -31,9 +31,9 @@ int exeproc(Process proc){
 	else if (pid == 0){ // Child Process
 		//printf("%d:%d\n",*shared,getpid());
 		while(*shared){
-			printf("pending\n");
+			//printf("pending\n");
 		}
-		printf("%s:%d is now running \n",proc.name,getpid());
+		//printf("%s:%d is now running \n",proc.name,getpid());
 		//munmap(NULL, sizeof(int));
 		//printf("%d is setting low\n",getpid());
 		//printf("%d is here\n",getpid());

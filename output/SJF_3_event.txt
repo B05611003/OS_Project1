@@ -1,0 +1,26 @@
+at 100, P1 2521 is fork()
+at 100, P2 2522 is fork()
+at 100, P3 2523 is fork()
+at 100,running P1
+at 200, P4 2524 is fork()
+at 200, P5 2525 is fork()
+at 300, P6 2526 is fork()
+at 400, P7 2527 is fork()
+at 500, P8 2528 is fork()
+at 3100,running P4
+at 3110,running P5
+at 3120,running P6
+at 7120,running P7
+at 11120,running P2
+at 16120,running P3
+at 23120,running P8
+------------------------------
+name	id
+P1	2521
+P2	2522
+P3	2523
+P4	2524
+P5	2525
+P6	2526
+P7	2527
+P8	2528
