@@ -22,9 +22,9 @@ which can decide when will the process been run or stopped by changing schedulin
 ## 2.kernel version
 * kernel 4.15.8(HW1的版本)
 ## 3.usage 
-`git clone https://github.com/B05611003/OS_Project1`
-`cd OS_Project1`
-`make`
-`sh run.sh` #you might need sudo to run the program correctly
+`git clone https://github.com/B05611003/OS_Project1`  
+`cd OS_Project1`  
+`make`  
+`sh run.sh` **#you might need sudo to run the program correctly**
 
 
