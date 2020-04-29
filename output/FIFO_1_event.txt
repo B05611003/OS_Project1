@@ -1,8 +1,8 @@
-at 0, P1 2189 is fork()
-at 0, P2 2190 is fork()
-at 0, P3 2191 is fork()
-at 0, P4 2192 is fork()
-at 0, P5 2193 is fork()
+at 0, P1 3274 is fork()
+at 0, P2 3275 is fork()
+at 0, P3 3276 is fork()
+at 0, P4 3277 is fork()
+at 0, P5 3278 is fork()
 at 0,running P1
 at 500,running P2
 at 1000,running P3
@@ -10,8 +10,8 @@ at 1500,running P4
 at 2000,running P5
 ------------------------------
 name	id
-P1	2189
-P2	2190
-P3	2191
-P4	2192
-P5	2193
+P1	3274
+P2	3275
+P3	3276
+P4	3277
+P5	3278

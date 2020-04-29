@@ -1,6 +1,6 @@
-at 600, P1 2389 is fork()
+at 600, P1 3478 is fork()
 at 600,running P1
-at 800, P2 2390 is fork()
+at 800, P2 3479 is fork()
 at 1100,running P2
 at 1600,running P1
 at 2100,running P2
@@ -18,5 +18,5 @@ at 7600,running P1
 at 8100,running P2
 ------------------------------
 name	id
-P1	2389
-P2	2390
+P1	3478
+P2	3479

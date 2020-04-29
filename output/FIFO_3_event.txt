@@ -1,11 +1,11 @@
-at 0, P1 2226 is fork()
+at 0, P1 3314 is fork()
 at 0,running P1
-at 200, P2 2227 is fork()
-at 300, P3 2228 is fork()
-at 400, P4 2229 is fork()
-at 500, P5 2230 is fork()
-at 500, P6 2231 is fork()
-at 600, P7 2232 is fork()
+at 200, P2 3315 is fork()
+at 300, P3 3316 is fork()
+at 400, P4 3317 is fork()
+at 500, P5 3318 is fork()
+at 500, P6 3319 is fork()
+at 600, P7 3320 is fork()
 at 8000,running P2
 at 13000,running P3
 at 16000,running P4
@@ -14,10 +14,10 @@ at 18000,running P6
 at 19000,running P7
 ------------------------------
 name	id
-P1	2226
-P2	2227
-P3	2228
-P4	2229
-P5	2230
-P6	2231
-P7	2232
+P1	3314
+P2	3315
+P3	3316
+P4	3317
+P5	3318
+P6	3319
+P7	3320

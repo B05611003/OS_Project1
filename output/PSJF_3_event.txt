@@ -1,15 +1,15 @@
-at 0,P1 2319 is fork()
+at 0,P1 3408 is fork()
 at 0,running P1
-at 500,P2 2320 is fork()
+at 500,P2 3409 is fork()
 at 500,running P2
-at 1000,P3 2321 is fork()
+at 1000,P3 3410 is fork()
 at 1000,running P3
-at 1500,P4 2322 is fork()
+at 1500,P4 3411 is fork()
 at 1500,running P4
 at 2000,running P1
 ------------------------------
 name	id
-P1	2319
-P2	2320
-P3	2321
-P4	2322
+P1	3408
+P2	3409
+P3	3410
+P4	3411

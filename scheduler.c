@@ -116,6 +116,8 @@ void schedule_RR(Process *proc, int num_procs){
 	int remaining = num_procs;
 	int ingproc=0;
 	int next = -1;
+	int front = -1, rear = -1;
+	int items[20];
 	//to make sure the child running fairly,set the parent to other CPU
 
 	if (get_nprocs()>1){
@@ -135,12 +137,14 @@ void schedule_RR(Process *proc, int num_procs){
 			remaining--;
 			if(remaining == 0) break;
 		}
-		
 		for (int i = ingproc; i < num_procs; i++) {	//for every proc
 			if (proc[i].ready == curr) {			//if proc had come
 				proc[i].pid = exeproc(proc[i]);		//init process
 				printf("at %d, %s %d is fork()\n",curr,proc[i].name,proc[i].pid);
 				fflush(stdout);
+				if (front == -1) front = 0;
+				rear = (rear + 1) % 20;
+				items[rear] = i;
 				ingproc++;
 			}
 			else{
@@ -150,16 +154,34 @@ void schedule_RR(Process *proc, int num_procs){
 		next = -1;
 		if (running == -1) {	//currrently not running program
 			//printf("here:%d\n",curr );
-			for (int i = 0; i < ingproc; i++) 
-				if (proc[i].exec > 0) {
-					next = i;
-					break;
+			if (front != -1){
+				next = items[front];
+				if (front == rear) {
+					front = -1;
+					rear = -1;
+				}
+				else {
+					front = (front + 1) % 20;
+				} 
 			}
 		}
 		else if ((curr-event) % 500 == 0) {// time up and change
-			next = (running+1) % num_procs;
-			while (proc[next].pid == -1 || proc[next].exec == 0) 
-				next = (next+1) % num_procs;
+			if (proc[running].exec>0){
+				if (front == -1) front = 0;
+				rear = (rear + 1) % 20;
+				items[rear] = running;
+			}
+			if (front == -1)	continue;
+			else{
+				next = items[front];
+				if (front == rear) {
+					front = -1;
+					rear = -1;
+				}
+				else {
+					front = (front + 1) % 20;
+				} 
+			}
 		} 
 		else {
 			next = running;
